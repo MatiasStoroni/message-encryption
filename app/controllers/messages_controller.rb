@@ -78,7 +78,7 @@ class MessagesController < ApplicationController
         key_position += 1
       end
     end
-
+    
     message.update(body: text, encrypted: true)
 
     render json: message, status: 200
