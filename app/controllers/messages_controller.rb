@@ -5,6 +5,12 @@ class MessagesController < ApplicationController
 
   before_action :set_message, only: [:update, :destroy]
 
+  def index
+    respond_to do |format|
+      format.json { render status: 200, json: Message.all}
+    end
+  end
+
   def create
     message = Message.create(message_params)
     respond_to do |format|

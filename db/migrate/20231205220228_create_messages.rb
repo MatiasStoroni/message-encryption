@@ -5,7 +5,6 @@ class CreateMessages < ActiveRecord::Migration[7.0]
       t.string :body
       t.string :key   #que sea tipo string permite el uso de métodos como "key.length"
       t.boolean :encrypted, default: false
-      t.timestamps
     end
   end
 end
