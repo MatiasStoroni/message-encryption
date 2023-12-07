@@ -79,8 +79,6 @@ class MessagesController < ApplicationController
       end
     end
 
-    puts "texto final encriptado = #{text}"
-
     message.update(body: text, encrypted: true)
 
     render json: message, status: 200
