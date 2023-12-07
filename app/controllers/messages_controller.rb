@@ -80,11 +80,6 @@ class MessagesController < ApplicationController
         key_position += 1
       end
     end
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> f4f9aa9d79a4c378e95d9273447387a7ff4459bc
     message.update(body: text, encrypted: true)
     respond_to do |format|
       format.json { render json: message, status: 200 }
