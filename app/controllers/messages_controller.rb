@@ -40,7 +40,9 @@ class MessagesController < ApplicationController
     message = Message.find_by(id: params[:message_id])
 
     if message.encrypted
-      render json: "El mensaje ya ha sido encriptado", status: 405
+      respond_to do |format|
+        format.json { render json: "El mensaje ya ha sido encriptado", status: 405 }
+      end
       return
     end
 
@@ -79,11 +81,10 @@ class MessagesController < ApplicationController
       end
     end
 
-    puts "texto final encriptado = #{text}"
-
     message.update(body: text, encrypted: true)
-
-    render json: message, status: 200
+    respond_to do |format|
+      format.json { render json: message, status: 200 }
+    end
   end
 
   private
